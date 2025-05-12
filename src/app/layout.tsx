@@ -1,7 +1,7 @@
-// src/app/layout.tsx
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import '@/styles/global.css'
 import { cn } from "@/lib/utils";
 
 // Font configuration
@@ -36,15 +36,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      {/* Remove the manual <head /> tag - Next.js will handle this */}
       <body
+        suppressHydrationWarning // Add this to suppress hydration warnings on the body too
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           geistSans.variable,
           geistMono.variable
         )}
       >
-        {/* If you add a ThemeProvider later, you can wrap children with it here */}
         {children}
       </body>
     </html>
